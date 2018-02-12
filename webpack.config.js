@@ -13,7 +13,7 @@ module.exports = {
         'webpack': 'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
         'MapStore2-C027': path.join(__dirname, "js", "app"),
         "themes/firenze": path.join(__dirname, "assets", "themes", "firenze", "theme.less"),
-        "embedded": path.join(__dirname, "MapStore2", "web", "client", "product", "embedded")
+        "embedded": path.join(__dirname, "js", "embedded")
     }),
     output: {
         path: path.join(__dirname, "dist"),
@@ -127,11 +127,11 @@ module.exports = {
     devServer: {
         proxy: {
             '/mapstore2/rest/geostore': {
-                target: "http://dev.mapstore2.geo-solutions.it",
+                target: "http://localhost:8082",
                 pathRewrite: {'^/mapstore2/rest/geostore': '/mapstore/rest/geostore'}
             },
             '/mapstore2/proxy': {
-                target: "http://dev.mapstore2.geo-solutions.it",
+                target: "http://localhost:8082",
                 pathRewrite: {'^/mapstore2/proxy': '/mapstore/proxy'}
             }
         }
